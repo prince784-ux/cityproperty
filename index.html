@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>City Property | Luxury Real Estate</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #0b0b0b;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    .gold { color: #d4af37; }
+
+    /* HERO */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: radial-gradient(circle at top, #1a1a1a, #000);
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 60px;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .hero p {
+        max-width: 700px;
+        margin: 20px auto;
+        color: #bbb;
+        opacity: 0;
+        transform: translateY(40px);
+        line-height: 1.6;
+    }
+
+    .buttons {
+        margin-top: 25px;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .btn {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .gold-btn {
+        background: #d4af37;
+        color: #000;
+    }
+
+    .outline-btn {
+        border: 1px solid #d4af37;
+        color: #d4af37;
+    }
+
+    .outline-btn:hover {
+        background: #d4af37;
+        color: #000;
+    }
+
+    section {
+        padding: 120px 20px;
+        text-align: center;
+    }
+
+    .card {
+        background: #121212;
+        border: 1px solid #222;
+        padding: 40px;
+        max-width: 800px;
+        margin: auto;
+        border-radius: 16px;
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: #bbb;
+        line-height: 1.7;
+    }
+
+    footer {
+        padding: 40px;
+        text-align: center;
+        color: #666;
+        border-top: 1px solid #222;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div>
+        <h1>City <span class="gold">Property</span></h1>
+        <p>
+            Premium real estate consultancy in Delhi, Noida & Gurgaon.
+            We connect serious buyers with high-value investment opportunities.
+        </p>
+
+        <div class="buttons">
+            <a class="btn gold-btn" href="https://wa.me/919910107359">WhatsApp</a>
+            <a class="btn outline-btn" href="https://instagram.com/cityproperty01">Instagram</a>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 1 -->
+<section>
+    <div class="card">
+        <h2><span class="gold">Luxury</span> Real Estate Experts</h2>
+        <p>
+            We specialize in premium residential and commercial properties.
+            Our focus is trust, transparency, and high ROI investment deals.
+        </p>
+    </div>
+</section>
+
+<!-- SECTION 2 -->
+<section>
+    <div class="card">
+        <h2>Direct <span class="gold">Contact</span></h2>
+        <p>
+            No delays. No middle steps. Talk directly to our property consultants
+            via WhatsApp or Instagram for instant response.
+        </p>
+
+        <div style="margin-top:25px;">
+            <a class="btn gold-btn" href="https://wa.me/919910107359">Send WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 City Property. All rights reserved.
+</footer>
+
+<!-- GSAP ANIMATION -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// HERO ANIMATION
+gsap.to(".hero h1", { opacity: 1, y: 0, duration: 1 });
+gsap.to(".hero p", { opacity: 1, y: 0, duration: 1, delay: 0.3 });
+gsap.to(".buttons", { opacity: 1, y: 0, duration: 1, delay: 0.6 });
+
+// SCROLL CARDS
+gsap.utils.toArray(".card").forEach(card => {
+    gsap.to(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1
+    });
+});
+</script>
+
+</body>
+          </html>
